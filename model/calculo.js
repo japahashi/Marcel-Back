@@ -43,26 +43,31 @@ const calcular = function(numero1, numero2, operador){
         return false
     } */
    switch (operadorMatematico) {
-    case "somar":
-        resultado = valor1 + valor2
+    case "SOMAR":
+        resultado = somar(valor1, valor2)
         break;
-    case "subtrair":
-        resultado = valor1 - valor2
-        break
-    case "multiplicar":
-        resultado = valor1 * valor2
-        break
-    default:
+    case "SUBTRAIR":
+        resultado = subtrair(valor1, valor2)
+        break;
+    case "MULTIPLICAR":
+        resultado = multiplicar (valor1, valor2)
+        break;
+    case "DIVIDIR":
+        resultado = dividir (valor1, valor2)
         break;
    }
-    
+        return resultado
 }
-//Chamamndo fução para testar
-let resultado = calcular(20, 10, "somar")
+//Função baseada em formato de seta (ARROW FUNCTION)
+const somar = (numero1, numero2) => Number(numero1) + Number(numero2)
+const subtrair = (numero1, numero2) => Number(numero1) - Number(numero2)
+const multiplicar = (numero1, numero2) => Number(numero1) * Number(numero2)
+const dividir = (numero1, numero2) => Number(numero1) / Number(numero2)
 
-if(resultado){
-    console.log(resultado)
-
-}else{
-    console.log("ERRO")
+module.exports = {
+    calcular,
+    somar,
+    subtrair,
+    multiplicar,
+    dividir
 }
